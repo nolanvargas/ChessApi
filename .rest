@@ -1,0 +1,1 @@
+GET http://localhost:3000/graphql?query=%7B%0A%20%20chess(id%3A%20%2263dbdc33dc1e10c1662cca95%22)%7B%0A%20%20%7D%0A%7D
