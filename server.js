@@ -6,7 +6,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-mongoose.connect(process.env.connectionString);
+mongoose.connect(process.env.MONGO_URI);
 
 mongoose.connection.once("open", () => {
   console.log("connected to database");
@@ -14,23 +14,18 @@ mongoose.connection.once("open", () => {
 
 const app = express();
 
-app.use("/graphql", (req, res, next) => {
-  console.log(req.body);
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-  })(req, res, next);
-});
+// app.use("/graphql", (req, res, next) => {
+//   console.log(req.body);
+//   graphqlHTTP({
+//     schema,
+//     graphiql: true,
+//   })(req, res, next);
+// });
 
-//This route will be used as an endpoint to interact with Graphql,
-//All queries will go through this route.
 app.use(
   "/graphql",
   graphqlHTTP({
-    //directing express-graphql to use this schema to map out the graph
     schema,
-    //directing express-graphql to use graphiql when goto '/graphql' address in the browser
-    //which provides an interface to make GraphQl queries
     graphiql: true,
   })
 );
