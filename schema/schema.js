@@ -1,5 +1,5 @@
-const graphql = require("graphql");
-const mongoose = require("mongoose");
+const graphql = require('graphql');
+const mongoose = require('mongoose');
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -20,10 +20,10 @@ const ChessBoardSchema = new mongoose.Schema({
   ],
 });
 
-const ChessBoardModel = mongoose.model("ChessBoards", ChessBoardSchema);
+const ChessBoardModel = mongoose.model('ChessBoards', ChessBoardSchema);
 
 const PieceType = new GraphQLObjectType({
-  name: "Piece",
+  name: 'Piece',
   fields: () => ({
     _id: { type: GraphQLID },
     row: { type: GraphQLInt },
@@ -34,7 +34,7 @@ const PieceType = new GraphQLObjectType({
 });
 
 const ChessBoardType = new GraphQLObjectType({
-  name: "ChessBoard",
+  name: 'ChessBoard',
   fields: () => ({
     _id: { type: GraphQLID },
     board: { type: new GraphQLList(PieceType) },
@@ -42,7 +42,7 @@ const ChessBoardType = new GraphQLObjectType({
 });
 
 const Mutation = new GraphQLObjectType({
-  name: "Mutation",
+  name: 'Mutation',
   fields: {
     updatePieceLocation: {
       type: ChessBoardType,
@@ -85,40 +85,40 @@ const Mutation = new GraphQLObjectType({
         } else {
           const defaultBoard = [
             // White pieces
-            { row: 0, column: 0, piece: "rook", color: "white" },
-            { row: 0, column: 1, piece: "knight", color: "white" },
-            { row: 0, column: 2, piece: "bishop", color: "white" },
-            { row: 0, column: 3, piece: "queen", color: "white" },
-            { row: 0, column: 4, piece: "king", color: "white" },
-            { row: 0, column: 5, piece: "bishop", color: "white" },
-            { row: 0, column: 6, piece: "knight", color: "white" },
-            { row: 0, column: 7, piece: "rook", color: "white" },
-            { row: 1, column: 0, piece: "pawn", color: "white" },
-            { row: 1, column: 1, piece: "pawn", color: "white" },
-            { row: 1, column: 2, piece: "pawn", color: "white" },
-            { row: 1, column: 3, piece: "pawn", color: "white" },
-            { row: 1, column: 4, piece: "pawn", color: "white" },
-            { row: 1, column: 5, piece: "pawn", color: "white" },
-            { row: 1, column: 6, piece: "pawn", color: "white" },
-            { row: 1, column: 7, piece: "pawn", color: "white" },
+            { row: 0, column: 0, piece: 'rook', color: 'white' },
+            { row: 0, column: 1, piece: 'knight', color: 'white' },
+            { row: 0, column: 2, piece: 'bishop', color: 'white' },
+            { row: 0, column: 3, piece: 'queen', color: 'white' },
+            { row: 0, column: 4, piece: 'king', color: 'white' },
+            { row: 0, column: 5, piece: 'bishop', color: 'white' },
+            { row: 0, column: 6, piece: 'knight', color: 'white' },
+            { row: 0, column: 7, piece: 'rook', color: 'white' },
+            { row: 1, column: 0, piece: 'pawn', color: 'white' },
+            { row: 1, column: 1, piece: 'pawn', color: 'white' },
+            { row: 1, column: 2, piece: 'pawn', color: 'white' },
+            { row: 1, column: 3, piece: 'pawn', color: 'white' },
+            { row: 1, column: 4, piece: 'pawn', color: 'white' },
+            { row: 1, column: 5, piece: 'pawn', color: 'white' },
+            { row: 1, column: 6, piece: 'pawn', color: 'white' },
+            { row: 1, column: 7, piece: 'pawn', color: 'white' },
 
             // Black pieces
-            { row: 7, column: 0, piece: "rook", color: "black" },
-            { row: 7, column: 1, piece: "knight", color: "black" },
-            { row: 7, column: 2, piece: "bishop", color: "black" },
-            { row: 7, column: 3, piece: "queen", color: "black" },
-            { row: 7, column: 4, piece: "king", color: "black" },
-            { row: 7, column: 5, piece: "bishop", color: "black" },
-            { row: 7, column: 6, piece: "knight", color: "black" },
-            { row: 7, column: 7, piece: "rook", color: "black" },
-            { row: 6, column: 0, piece: "pawn", color: "black" },
-            { row: 6, column: 1, piece: "pawn", color: "black" },
-            { row: 6, column: 2, piece: "pawn", color: "black" },
-            { row: 6, column: 3, piece: "pawn", color: "black" },
-            { row: 6, column: 4, piece: "pawn", color: "black" },
-            { row: 6, column: 5, piece: "pawn", color: "black" },
-            { row: 6, column: 6, piece: "pawn", color: "black" },
-            { row: 6, column: 7, piece: "pawn", color: "black" },
+            { row: 7, column: 0, piece: 'rook', color: 'black' },
+            { row: 7, column: 1, piece: 'knight', color: 'black' },
+            { row: 7, column: 2, piece: 'bishop', color: 'black' },
+            { row: 7, column: 3, piece: 'queen', color: 'black' },
+            { row: 7, column: 4, piece: 'king', color: 'black' },
+            { row: 7, column: 5, piece: 'bishop', color: 'black' },
+            { row: 7, column: 6, piece: 'knight', color: 'black' },
+            { row: 7, column: 7, piece: 'rook', color: 'black' },
+            { row: 6, column: 0, piece: 'pawn', color: 'black' },
+            { row: 6, column: 1, piece: 'pawn', color: 'black' },
+            { row: 6, column: 2, piece: 'pawn', color: 'black' },
+            { row: 6, column: 3, piece: 'pawn', color: 'black' },
+            { row: 6, column: 4, piece: 'pawn', color: 'black' },
+            { row: 6, column: 5, piece: 'pawn', color: 'black' },
+            { row: 6, column: 6, piece: 'pawn', color: 'black' },
+            { row: 6, column: 7, piece: 'pawn', color: 'black' },
           ];
 
           const newBoard = new ChessBoardModel({ board: defaultBoard });
@@ -127,6 +127,7 @@ const Mutation = new GraphQLObjectType({
         }
 
         const newBoard = new ChessBoardModel({ board: chessBoard.board });
+        // eslint-disable-next-line
         newBoard._id = mongoose.Types.ObjectId();
         newBoard.isNew = true;
         await newBoard.save();
@@ -151,7 +152,7 @@ const Mutation = new GraphQLObjectType({
 });
 
 const RootQuery = new GraphQLObjectType({
-  name: "RootQueryType",
+  name: 'RootQueryType',
   fields: {
     chessBoard: {
       _id: GraphQLID,
