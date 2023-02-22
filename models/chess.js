@@ -1,9 +1,4 @@
-const mongoose = require("mongoose");
-
-// const chessSchema = { test: String };
-
-// module.exports = mongoose.model("Chess", chessSchema);
-
+const mongoose = require('mongoose');
 const ChessBoardSchema = new mongoose.Schema({
   board: [
     {
@@ -13,4 +8,4 @@ const ChessBoardSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model("ChessBoards", ChessBoardSchema);
+module.exports = mongoose.model('ChessBoards', ChessBoardSchema);
